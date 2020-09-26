@@ -22,4 +22,4 @@ spec:
     - https://download.jboss.org/jbosstools/vscode/3rdparty/vscode-java-debug/vscode-java-debug-0.26.0.vsix
     - https://download.jboss.org/jbosstools/static/jdt.ls/stable/java-0.63.0-2222.vsix
     - https://open-vsx.org/api/vscjava/vscode-java-test/0.24.0/file/vscjava.vscode-java-test-0.24.0.vsix
-    - https://github.com/RomanNikitenko/gradle-extension/releases/download/v1.0/vscode-gradle-3.4.5.vsix
+    - https://github.com/RomanNikitenko/gradle-extension/releases/download/v1.0/vscode-gradle-2.2.0.vsix

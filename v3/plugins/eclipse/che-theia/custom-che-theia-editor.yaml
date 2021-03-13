@@ -3,7 +3,7 @@ publisher: eclipse
 name: che-theia
 version: next
 type: Che Editor
-displayName: theia-ide (PR 823)
+displayName: theia-ide
 title: Eclipse Theia development version.
 description: Eclipse Theia, get the latest release each day.
 icon: https://raw.githubusercontent.com/theia-ide/theia/master/logo/theia-logo-no-text-black.svg?sanitize=true
@@ -58,7 +58,7 @@ spec:
         discoverable: false
   containers:
    - name: theia-ide
-     image: "maxura/che-theia:823"
+     image: "rnikitenko/che-theia:testTerminal"
      env:
          - name: THEIA_PLUGINS
            value: local-dir:///plugins
@@ -81,7 +81,7 @@ spec:
      memoryLimit: "512M"
   initContainers:
   - name: remote-runtime-injector
-    image: "docker.io/maxura/che-theia-endpoint-runtime-binary:823"
+    image: "quay.io/eclipse/che-theia-endpoint-runtime-binary:next"
     volumes:
       - mountPath: "/remote-endpoint"
         name: remote-endpoint

@@ -56,9 +56,18 @@ spec:
       attributes:
         protocol: http
         discoverable: false
+   -  name: terminal
+      public: true
+      targetPort: 3333
+      attributes:
+        protocol: ws
+        type: collocated-terminal
+        discoverable: false
+        secure: true
+        cookiesAuthEnabled: true
   containers:
    - name: theia-ide
-     image: "rnikitenko/che-theia:testTerminal"
+     image: "rnikitenko/che-theia:latest-ubi8"
      env:
          - name: THEIA_PLUGINS
            value: local-dir:///plugins
@@ -79,9 +88,17 @@ spec:
          - exposedPort: 13132
          - exposedPort: 13133
      memoryLimit: "512M"
+   - name: che-machine-exec
+     image: 'quay.io/eclipse/che-machine-exec:nightly'
+     ports:
+         - exposedPort: 3333
+     command:
+         - /go/bin/che-machine-exec
+         - '--url'
+         - '127.0.0.1:3333'
   initContainers:
   - name: remote-runtime-injector
-    image: "quay.io/eclipse/che-theia-endpoint-runtime-binary:next"
+    image: "rnikitenko/che-theia-endpoint-runtime-binary:latest-ubi8"
     volumes:
       - mountPath: "/remote-endpoint"
         name: remote-endpoint
